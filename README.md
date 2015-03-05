@@ -89,6 +89,7 @@ To Vagrant παίρνοντας πληροφορίες από ένα αρχεί�
 
 ### Vagrant
 
+Παρακάτω θα βρείτε μερικές χρήσιμες εντολές για το vagrant.
 Καθώς είμαστε μέσα στο φάκελο όπου περιέχεται το `Vagrantfile` δίνουμε:
 
 command | descriptio
@@ -100,5 +101,17 @@ vagrant status | δείχνει το status του VM
 vagrant provision | ενώ είναι πάνω το VM, τρέχει τα ansible scripts
 vagrant ssh | συνδεόμαστε στο VM μέσω ssh
 
+## Εκγατάσταση Edx
+
+Φτιάχνουμε ένα φάκελο, κατεβάζουμε το Vagrantfile και ξεκινάμε το VM:
+
+```
+mkdir devstack
+cd devstack
+curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile > Vagrantfile
+vagrant box add lavash-devstack 20141118-lavash-devstack.box
+vagrant plugin install vagrant-vbguest
+vagrant up
+```
 
 [virtualization]: https://en.wikipedia.org/wiki/Virtualization
