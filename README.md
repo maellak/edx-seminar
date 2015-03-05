@@ -96,6 +96,7 @@ command | descriptio
 vagrant up | σηκώνεται το VM που περιγράφεται στο Vagrantfile. Αν είναι η πρώτη φορά που το τρέχουμε θα τρέξουν και τα ansible scripts μαζί
 vagrant halt | κάνει poweroff το VM
 vagrant reload | κάνει reboot το VM
+vagrant status | δείχνει το status του VM
 vagrant provision | ενώ είναι πάνω το VM, τρέχει τα ansible scripts
 vagrant ssh | συνδεόμαστε στο VM μέσω ssh
 
