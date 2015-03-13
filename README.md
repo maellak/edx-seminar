@@ -186,9 +186,9 @@ ruby app.rb -p 18080
 
 service | vagrant port | okeanos port
 --------|--------------|-------------
-LMS     | http://localhost:8000 | okeanos_ip:8000
-Studio  | http://localhost:8000 | okeanos_ip:8000
-Forum   | http://localhost:18080| okeanos_ip:18080
+LMS     | <http://localhost:8000> | okeanos_ip:8000
+Studio  | <http://localhost:8001> | okeanos_ip:8001
+Forum   | <http://localhost:18080>| okeanos_ip:18080
 
 
 [virtualization]: https://en.wikipedia.org/wiki/Virtualization
