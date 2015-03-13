@@ -10,3 +10,8 @@
 
     - name: remove default user
       user: name=user state=absent remove=yes
+
+    - name: change vagrant password
+      user: >
+        name=vagrant
+        password=$1$PVMfG7Xb$MCRDqywrAdQJw3QV4OOXa/
