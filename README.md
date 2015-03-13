@@ -1,3 +1,24 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Edx setup dev environment](#edx-setup-dev-environment)
+  - [Installation](#installation)
+    - [VirtualBox](#virtualbox)
+    - [Vagrant](#vagrant)
+  - [How it works](#how-it-works)
+    - [VirtualBox](#virtualbox-1)
+    - [Vagrant](#vagrant-1)
+    - [Ansible](#ansible)
+  - [How to use](#how-to-use)
+    - [Vagrant](#vagrant-2)
+  - [Εγκατάσταση Edx](#εγκατάσταση-edx)
+- [Development](#development)
+  - [Σύνδεση με ssh](#σύνδεση-με-ssh)
+  - [Services and ports](#services-and-ports)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Edx setup dev environment
 
 Εργαλεία που θα χρειαστούμε:
@@ -92,7 +113,7 @@ To Vagrant παίρνοντας πληροφορίες από ένα αρχεί�
 Παρακάτω θα βρείτε μερικές χρήσιμες εντολές για το vagrant.
 Καθώς είμαστε μέσα στο φάκελο όπου περιέχεται το `Vagrantfile` δίνουμε:
 
-command | descriptio
+command | description
 --------|-----------
 vagrant up | σηκώνεται το VM που περιγράφεται στο Vagrantfile. Αν είναι η πρώτη φορά που το τρέχουμε θα τρέξουν και τα ansible scripts μαζί
 vagrant halt | κάνει poweroff το VM
@@ -101,7 +122,7 @@ vagrant status | δείχνει το status του VM
 vagrant provision | ενώ είναι πάνω το VM, τρέχει τα ansible scripts
 vagrant ssh | συνδεόμαστε στο VM μέσω ssh
 
-## Εκγατάσταση Edx
+## Εγκατάσταση Edx
 
 Φτιάχνουμε ένα φάκελο, κατεβάζουμε το Vagrantfile και ξεκινάμε το VM:
 
@@ -114,4 +135,60 @@ vagrant plugin install vagrant-vbguest
 vagrant up
 ```
 
+# Development
+
+## Σύνδεση με ssh
+
+Αφού έχει σηκωθεί το VM, συνδεόμαστε με ssh.
+
+**Προσοχή:** Πρέπει να είμαστε μέσα το directory όπου βρίσκεται το `Vagrantfile`.
+
+```
+## όσοι έχουν laptop
+vagrant ssh
+
+## όσοι έχουν okeano
+ssh vagrant@okeanos_ip
+```
+
+όπου `okeanos_ip` αυτή που σας έχει σταλεί με το ανάλογο password.
+
+## Services and ports
+
+Το επίσημο documentation για το πως θα ενεργοιήσετε τις υπηρεσίες βρίσκετε
+[εδώ][dev].
+
+Συνοπτικά, αφού έχουμε συνδεθεί με ssh είναι:
+
+```
+## αλλαγή χρήστη
+sudo su edxapp
+
+## για το lms
+paver devstack lms
+
+## για το studio
+paver devstack studio
+```
+
+Για το forum (αν και δε θα μας χρειαστεί) πρέπει να συνδεθούμε με άλλο 
+χρήστη. Αρχικά βεβαιωθείτε ότι τρέχετε τις παρακάτω εντολές με το χρήστη
+`vagrant`:
+
+```
+sudo su forum
+bundle install
+ruby app.rb -p 18080
+```
+
+Οι ανάλογες πόρτες είναι:
+
+service | vagrant port | okeanos port
+--------|--------------|-------------
+LMS     | http://localhost:8000 | okeanos_ip:8000
+Studio  | http://localhost:8000 | okeanos_ip:8000
+Forum   | http://localhost:18080| okeanos_ip:18080
+
+
 [virtualization]: https://en.wikipedia.org/wiki/Virtualization
+[dev]: https://github.com/edx/configuration/wiki/edX-Developer-Stack#using-the-edx-devstack
