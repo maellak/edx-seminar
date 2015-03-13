@@ -3,7 +3,7 @@
 service stop mongod
 
 if [ -f /edx/var/mongo/mongodb/mongof.lock ]
-  rm /edx/var/mongo/mongodb/mongod.lock
+  rm -f /edx/var/mongo/mongodb/mongod.lock
 fi
 
 if [ -d /edx/var/mongo/mongodb/admin ]
@@ -14,8 +14,8 @@ if [ -d /edx/var/mongo/mongodb/local ]
   rm -rf /edx/var/mongo/mongodb/local
 fi
 
-chown -R mongodb:mongodb /edx/var/mongo/
-
 mongod --repair --config /etc/mongodb.conf
 
 service start mongod
+
+chown -R mongodb:mongodb /edx/var/mongo/
