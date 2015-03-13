@@ -1,0 +1,56 @@
+---
+- hosts: all
+  sudo: true
+
+  vars:
+    - mongo_path: /edx/var/mongo/mongodb
+
+  tasks:
+
+    - name: Copy postinstall scripts
+      copy:
+        src: "postinstall/{{ item }}"
+        dest: /root/
+        owner: root
+        group: root
+        mode: 755
+      with_items:
+        - mongo_fix.sh
+        - provision.sh
+      tags:
+        - copy
+
+    - name: mongodb | stop service
+      service: name=mongod state=stopped
+      tags:
+        - mongo
+
+    - name: mongodb | remove mongo.lock
+      file: name="{{ mongo_path}}/mongod.lock" state=absent
+      tags:
+        - mongo
+
+    - name: mongodb | remove mongo admin dir
+      file: name="{{ mongo_path}}/admin" state=absent
+      tags:
+        - mongo
+
+    - name: mongodb | remove mongo local dir
+      file: name="{{ mongo_path}}/local" state=absent
+      tags:
+        - mongo
+
+    - name: mongo | start mongodb
+      service: name=mongod state=started
+      tags:
+        - mongo
+
+    - name: mongodb | fix permissions
+      file:
+        name: "{{ mongo_path}}/"
+        owner: mongodb
+        group: mongodb
+        recurse: yes
+      tags:
+        - mongo
+
