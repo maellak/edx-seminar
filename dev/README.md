@@ -1,4 +1,2 @@
-## How to create okeanos ready to use VMs with edx dev stack
-
-1. Create virtualbox base VM with [packer][].
-
+1. Spawn okeanos VMs from `edx-devstack` base image.
+1. Run ansible post script to fix mongo
