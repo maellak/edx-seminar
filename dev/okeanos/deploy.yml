@@ -1,0 +1,7 @@
+---
+- hosts: okeanos
+  sudo: true
+  gather_facts: false
+
+- include: copyscript.yml
+- include: cleanse.yml
