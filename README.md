@@ -190,6 +190,12 @@ LMS     | <http://localhost:8000> | okeanos_ip:8000
 Studio  | <http://localhost:8001> | okeanos_ip:8001
 Forum   | <http://localhost:18080>| okeanos_ip:18080
 
+## Δημιουργία virtualenv
+
+```
+virtualenv /home/vagrant/.xblock
+source /home/vagrant/.xblock/bin/activate
+```
 
 [virtualization]: https://en.wikipedia.org/wiki/Virtualization
 [dev]: https://github.com/edx/configuration/wiki/edX-Developer-Stack#using-the-edx-devstack
