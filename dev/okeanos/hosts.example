@@ -1,0 +1,13 @@
+user01 ansible_ssh_host=<okeanos_ip>
+user02 ansible_ssh_host=<okeanos_ip>
+user03 ansible_ssh_host=<okeanos_ip>
+
+[okeanos]
+user01
+user02
+user03
+
+[okeanos:vars]
+ansible_ssh_user=<okeanos_user>
+ansible_ssh_private_key_file=/path/to/ssh_key
+ansible_ssh_port=<ssh_port>
