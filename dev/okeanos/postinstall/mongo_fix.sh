@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service stop mongod
+service mongod stop
 
 if [ -f /edx/var/mongo/mongodb/mongof.lock ]
   rm -f /edx/var/mongo/mongodb/mongod.lock
