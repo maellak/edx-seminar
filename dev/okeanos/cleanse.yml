@@ -1,7 +1,14 @@
 ---
+#
+# Run with `-e ssh_port=22`. Replace 22 with custom port.
+#
 - hosts: okeanos
   sudo: true
   gather_facts: false
+
+  handlers:
+    - name: restart sshd
+      service: name=ssh state=restarted
 
   tasks:
 
@@ -28,8 +35,14 @@
       tags:
         - ssh
 
-  handlers:
-
-    - name: restart sshd
-      service: name=ssh state=restarted
-
+    - name: change ssh port
+      lineinfile:
+        regexp: "Port "
+        line: "Port {{ ssh_port }}"
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart sshd
+      tags:
+        - ssh
