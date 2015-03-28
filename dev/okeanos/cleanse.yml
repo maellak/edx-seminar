@@ -15,3 +15,21 @@
       user: >
         name=vagrant
         password=$1$PVMfG7Xb$MCRDqywrAdQJw3QV4OOXa/
+
+    - name: disable ssh permitrootlogin
+      lineinfile:
+        regexp: "^PermitRootLogin"
+        line: "PermitRootLogin no"
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart sshd
+      tags:
+        - ssh
+
+  handlers:
+
+    - name: restart sshd
+      service: name=ssh state=restarted
+
