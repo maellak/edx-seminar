@@ -1,0 +1,8 @@
+---
+- hosts: okeanos
+  sudo: true
+
+  tasks:
+
+    - name: system update
+      apt: update_cache=yes upgrade=safe cache_valid_time=3600
