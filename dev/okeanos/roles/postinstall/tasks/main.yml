@@ -1,0 +1,72 @@
+---
+- name: remove maellak user
+  user: name=maellak state=absent remove=yes
+  tags:
+    - user
+
+- name: remove default user
+  user: name=user state=absent remove=yes
+  tags:
+    - user
+
+- name: change vagrant password
+  user:
+    name: "{{ ssh_user }}"
+    password: "{{ passwd }}"
+  tags:
+    - user
+
+- name: disable services
+  service: name={{ item }} enabled=false state=stopped
+  with_items:
+    - pulseaudio
+    - saned
+    - speech-dispatcher
+    - x11-common
+    - acpid
+    - alsa-store
+    - alsa-restore
+    - avahi-daemon
+    - cups
+    - lightdm
+  tags:
+    - services
+
+- name: remove packages
+  apt: name={{ item }} state=absent
+  with_items:
+    - firefox
+    - firefox-globalmenu
+    - firefox-locale-en
+    - google-chrome-stable
+  tags:
+    - packages
+
+- name: Add packages
+  apt: name={{ item }} state=present
+  with_items:
+    - fail2ban
+    - logwatch
+    - syslog-summary
+  tags:
+    - packages
+
+- name: Copy postinstall scripts
+  copy:
+    src: "{{ item }}"
+    dest: /root/
+    owner: root
+    group: root
+    mode: 755
+  with_items:
+    - mongo_fix.sh
+    - provision.sh
+
+- name: Install unattended-upgrades
+  action: apt pkg=unattended-upgrades state=present
+
+- name: Adjust APT update intervals
+  copy: src=apt_periodic dest=/etc/apt/apt.conf.d/10periodic
+
+- name: Make sure unattended-upgrades only installs from $ubuntu_release-security
+  action: lineinfile dest=/etc/apt/apt.conf.d/50unattended-upgrades regexp="$ubuntu_release-updates" state=absent

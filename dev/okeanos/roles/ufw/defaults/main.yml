@@ -1,0 +1,8 @@
+---
+ufw_connection_rate_limits: [ ]
+ufw_whitelisted_ipv4_addresses: [ ]
+ufw_whitelisted_ipv6_addresses: [ ]
+ufw_whitelisted_ports:
+  -  { port: 9022,  protocol: tcp }
+  -  { port: 8000,  protocol: tcp }
+  -  { port: 8001,  protocol: tcp }

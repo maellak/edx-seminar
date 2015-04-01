@@ -3,5 +3,11 @@
   sudo: true
   gather_facts: false
 
-- include: copyscript.yml
-- include: cleanse.yml
+  vars_files:
+    - private.yml
+
+  roles:
+    - postinstall
+    - fail2ban
+    - ufw
+    - ssh
