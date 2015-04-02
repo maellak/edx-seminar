@@ -48,8 +48,17 @@
     - fail2ban
     - logwatch
     - syslog-summary
+    - mysql-server
   tags:
     - packages
+
+- name: Enable and start services
+  service: name={{ item }} state=started enabled=true
+  with_items:
+    - mysql
+    - mongod
+  tags:
+    - services
 
 - name: Copy postinstall scripts
   copy:
