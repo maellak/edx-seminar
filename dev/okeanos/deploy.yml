@@ -1,5 +1,5 @@
 ---
-- hosts: okeanos
+- hosts: all
   sudo: true
   gather_facts: false
 
