@@ -1,0 +1,18 @@
+---
+- hosts: okeanos
+  sudo: true
+  gather_facts: false
+
+  tasks:
+
+    - name: Enable XBlock
+      copy:
+        dest: /edx/app/edx_ansible/server-vars.yml
+        src: vars/xblock-vars.yml
+        owner: edx-ansible
+        group: edx-ansible
+        mode: 644
+      tags:
+        - xblock
+
+- include: provision.yml

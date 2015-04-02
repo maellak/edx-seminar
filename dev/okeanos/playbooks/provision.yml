@@ -1,0 +1,19 @@
+---
+- hosts: okeanos
+  sudo: true
+  gather_facts: false
+
+  tasks:
+
+    - name: Make sure provision script is in place
+      copy:
+        src: ../roles/postinstall/files/provision.sh
+        dest: /root/provision.sh
+        owner: root
+        group: root
+        mode: 755
+      register: script
+
+    - name: Run ansible provision
+      shell: bash /root/provision.sh
+      when: script|success
