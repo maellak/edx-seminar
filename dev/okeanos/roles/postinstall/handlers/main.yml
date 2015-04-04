@@ -1,2 +1,5 @@
 - name: restart elasticsearch
   service: name=elasticsearch state=restarted enabled=yes
+
+- name: restart mongo
+  service: name=mongod state=restarted enabled=yes

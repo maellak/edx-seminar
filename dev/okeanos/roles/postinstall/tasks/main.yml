@@ -92,3 +92,15 @@
     - elastic
   notify:
     - restart elasticsearch
+
+- name: Bind mongo to localhost
+  lineinfile:
+    dest: /etc/mongod.conf
+    line: "bind_ip = 127.0.0.1"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - mongo
+  notify:
+    - restart mongo
