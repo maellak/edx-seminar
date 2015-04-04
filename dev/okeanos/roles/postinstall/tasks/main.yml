@@ -38,6 +38,7 @@
     - speech-dispatcher
     - x11-common
     - acpid
+    - postfix
   tags:
     - services
 
