@@ -78,3 +78,16 @@
 
 - name: Make sure unattended-upgrades only installs from $ubuntu_release-security
   action: lineinfile dest=/etc/apt/apt.conf.d/50unattended-upgrades regexp="$ubuntu_release-updates" state=absent
+
+- name: Elasticsearch listen to localhost
+  lineinfile:
+    regexp: "network.host"
+    dest: /etc/elasticsearch/elasticsearch.yml
+    line: "network.host: localhost"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - elastic
+  notify:
+    - restart elasticsearch
