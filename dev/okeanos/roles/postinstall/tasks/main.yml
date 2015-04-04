@@ -9,28 +9,12 @@
   tags:
     - user
 
-- name: change vagrant password
-  user:
-    name: "{{ ssh_user }}"
-    password: "{{ passwd }}"
-  tags:
-    - user
-
-- name: disable services
-  service: name={{ item }} enabled=false state=stopped
-  with_items:
-    - pulseaudio
-    - saned
-    - speech-dispatcher
-    - x11-common
-    - acpid
-    - alsa-store
-    - alsa-restore
-    - avahi-daemon
-    - cups
-    - lightdm
-  tags:
-    - services
+#- name: change vagrant password
+#  user:
+#    name: "{{ ssh_user }}"
+#    password: "{{ passwd }}"
+#  tags:
+#    - user
 
 - name: remove packages
   apt: name={{ item }} state=absent
@@ -39,8 +23,23 @@
     - firefox-globalmenu
     - firefox-locale-en
     - google-chrome-stable
+    - thunderbird
+    - cups
+    - avahi-daemon
+    - alsa-base
+    - pulseaudio
   tags:
     - packages
+
+- name: disable services
+  service: name={{ item }} enabled=false state=stopped
+  with_items:
+    - saned
+    - speech-dispatcher
+    - x11-common
+    - acpid
+  tags:
+    - services
 
 - name: Add packages
   apt: name={{ item }} state=present
