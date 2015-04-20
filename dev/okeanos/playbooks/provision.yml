@@ -1,6 +1,7 @@
 ---
 - hosts: okeanos
   sudo: true
+  sudo_user: root
   gather_facts: false
 
   tasks:
