@@ -9,16 +9,21 @@
   tags:
     - user
 
-#- name: change vagrant password
-#  user:
-#    name: "{{ ssh_user }}"
-#    password: "{{ passwd }}"
-#  tags:
-#    - user
+- name: Remove unneeded sources
+  command: rm {{ sources_path  }}{{ item }}
+  with_items:
+    - google-chrome.list
+    - google-chrome.list.save
+    - x2go-stable-precise.list
+    - x2go-stable-precise.list.save
+    - grnet-synnefo-precise.list
 
 - name: remove packages
-  apt: name={{ item }} state=absent
+  apt: name={{ item }} state=absent purge=yes update_cache=yes
   with_items:
+    - libx11*
+    - libqt*
+    - libice6
     - firefox
     - firefox-globalmenu
     - firefox-locale-en
@@ -28,17 +33,18 @@
     - avahi-daemon
     - alsa-base
     - pulseaudio
+    - x11-common
+    - xserver-xorg-core
+    - postfix
+    - libsane
+    - acpid
+    - speech-dispatcher
   tags:
     - packages
 
 - name: disable services
   service: name={{ item }} enabled=false state=stopped
   with_items:
-    - saned
-    - speech-dispatcher
-    - x11-common
-    - acpid
-    - postfix
   tags:
     - services
 
@@ -46,7 +52,6 @@
   apt: name={{ item }} state=present
   with_items:
     - fail2ban
-    - logwatch
     - syslog-summary
     - mysql-server
   tags:
