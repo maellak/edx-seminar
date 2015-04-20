@@ -42,12 +42,6 @@
   tags:
     - packages
 
-- name: disable services
-  service: name={{ item }} enabled=false state=stopped
-  with_items:
-  tags:
-    - services
-
 - name: Add packages
   apt: name={{ item }} state=present
   with_items:
