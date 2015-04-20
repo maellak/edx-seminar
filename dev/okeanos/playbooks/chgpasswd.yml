@@ -1,0 +1,16 @@
+---
+- hosts: badpass
+  sudo: true
+  sudo_user: root
+
+  vars_files:
+    - ../private.yml
+
+  tasks:
+
+    - name: change vagrant password
+      user:
+        name: "{{ ssh_user }}"
+        password: "{{ passwd }}"
+      tags:
+        - passwd
