@@ -1,0 +1,9 @@
+---
+- hosts: okeanos
+  sudo: true
+  sudo_user: root
+
+  tasks:
+
+    - name: Reboot servers
+      shell: reboot
