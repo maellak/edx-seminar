@@ -14,7 +14,7 @@ if [ -d /edx/var/mongo/mongodb/local ]
   rm -rf /edx/var/mongo/mongodb/local
 fi
 
-mongod --repair --config /etc/mongodb.conf
+mongod --repair --config /etc/mongod.conf
 
 service start mongod
 

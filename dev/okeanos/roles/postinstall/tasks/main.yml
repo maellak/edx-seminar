@@ -69,6 +69,8 @@
   with_items:
     - mongo_fix.sh
     - provision.sh
+  tags:
+    - scripts
 
 - name: Install unattended-upgrades
   action: apt pkg=unattended-upgrades state=present
