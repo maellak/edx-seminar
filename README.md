@@ -1,7 +1,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [Contributions](#contributions)
 - [Edx setup dev environment](#edx-setup-dev-environment)
   - [Installation](#installation)
     - [VirtualBox](#virtualbox)
@@ -12,12 +13,25 @@
     - [Ansible](#ansible)
   - [How to use](#how-to-use)
     - [Vagrant](#vagrant-2)
-  - [Εγκατάσταση Edx](#εγκατάσταση-edx)
+  - [Εγκατάσταση Edx](#%CE%B5%CE%B3%CE%BA%CE%B1%CF%84%CE%AC%CF%83%CF%84%CE%B1%CF%83%CE%B7-edx)
 - [Development](#development)
-  - [Σύνδεση με ssh](#σύνδεση-με-ssh)
+  - [Σύνδεση με ssh](#%CF%83%CF%8D%CE%BD%CE%B4%CE%B5%CF%83%CE%B7-%CE%BC%CE%B5-ssh)
   - [Services and ports](#services-and-ports)
+  - [Δημιουργία virtualenv](#%CE%B4%CE%B7%CE%BC%CE%B9%CE%BF%CF%85%CF%81%CE%B3%CE%AF%CE%B1-virtualenv)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Contributions
+
+Παρακάτω είναι η λίστα με τις συνεισφορές στο Edx.
+
+* [XBlock - Slide Viewer](https://github.com/karaariana/slideviewer_new) - issue #9
+* [XBlock - SSH client](https://github.com/maellak/sshxblock) - issue #7
+* [XBlocks Install Manager](://github.com/cselis86/edx-platform) - issue #3
+
+Μπορείτε να βρείτε τις παρουσιάσεις στο φάκελο [./presentations][].
+
+------
 
 # Edx setup dev environment
 
