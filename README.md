@@ -25,6 +25,7 @@
 
 Παρακάτω είναι η λίστα με τις συνεισφορές στο Edx.
 
+* [XBlock - Code editor](https://github.com/xristallasa/xblock-codeeditor) - issue #4
 * [XBlock - Slide Viewer](https://github.com/karaariana/slideviewer_new) - issue #9
 * [XBlock - SSH client](https://github.com/Denis1990/sshxblock) - issue #7
 * [XBlocks Install Manager](https://github.com/cselis86/edx-platform) - issue #3
