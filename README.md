@@ -25,10 +25,14 @@
 
 Παρακάτω είναι η λίστα με τις συνεισφορές στο Edx.
 
-* [XBlock - Code editor](https://github.com/xristallasa/xblock-codeeditor) - issue #4
-* [XBlock - Slide Viewer](https://github.com/karaariana/slideviewer_new) - issue #9
-* [XBlock - SSH client](https://github.com/Denis1990/sshxblock) - issue #7
-* [XBlocks Install Manager](https://github.com/cselis86/edx-platform) - issue #3
+| Συνεισφορά | Συμμετέχοντες | issue |
+| ---------- | ------------- | ----- |
+| [XBlocks Install Manager](https://github.com/cselis86/edx-platform)       | Γκόλφω Βασιλείου, Καλαϊτζίδης Φώτης, Hazislari Elis | https://github.com/maellak/edx-seminar/issues/3 |
+| [WCAG-compatible accessibility theme](https://github.com/lkaraoulis/edx-theme-maellak) | Λάζαρος Καραούλης, Μπούκουρας Κώστας, Κυρτσώνη Αλεξάνδρα | https://github.com/maellak/edx-seminar/issues/8 |
+| [XBlock - Code editor](https://github.com/xristallasa/xblock-codeeditor)  | Σκεύη Άννα, Χρυστάλλα Σάββα | https://github.com/maellak/edx-seminar/issues/4 |
+| [XBlock - Slide Viewer](https://github.com/karaariana/slideviewer_new)    | Καραϊσκου Άρτεμις Αναστασία, Ναούμη Έλενα, Φώκου Αγγελική | https://github.com/maellak/edx-seminar/issues/9 |
+| [XBlock - SSH client](https://github.com/Denis1990/sshxblock)             | Μόνε Διονύσης, Μιρονένκο Βασίλης | https://github.com/maellak/edx-seminar/issues/7 |
+| [Xblock - BBB ](https://github.com/imavrik/BbbXBlock)                     | Μαυρικάκης Γιάννης, Πολίτης Φίλιππος | https://github.com/maellak/edx-seminar/issues/1 |
 
 Μπορείτε να βρείτε τις παρουσιάσεις στο φάκελο presentations.
 
